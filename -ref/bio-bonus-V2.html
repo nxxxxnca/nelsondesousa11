@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>_ref — bonus gallery + lightbox</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+body { padding-bottom: var(--s-9); }
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: var(--s-5) var(--s-5) var(--s-2);
+  font-weight: 600;
+}
+
+.t { border-bottom: 1px solid var(--line); padding: var(--s-5); }
+
+/* Galería horizontal */
+.gallery {
+  display: flex;
+  gap: var(--s-2);
+  overflow-x: auto;
+  padding-bottom: var(--s-2);
+  scroll-snap-type: x mandatory;
+}
+.gallery img {
+  height: 260px;
+  width: auto;
+  flex: 0 0 auto;
+  display: block;
+  background: var(--surface);
+  cursor: zoom-in;
+  scroll-snap-align: start;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-5);
+  z-index: 100;
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<p class="label">Bonus — scroll horizontal + lightbox</p>
+<section class="t">
+  <div class="gallery">
+    <img src="../media/pic-sobre-mi-1.png" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/pic-sobre-mi-1.png" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/pic-sobre-mi-1.png" alt="">
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="">
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+
+  document.querySelectorAll('.gallery img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+    });
+  });
+
+  function close() {
+    lb.classList.remove('open');
+    lbImg.src = '';
+  }
+
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
+
+</body>
+</html>

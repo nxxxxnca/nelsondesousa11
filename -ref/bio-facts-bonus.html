@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>_ref — facts + bonus variants</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+body { padding-bottom: var(--s-9); }
+
+.label {
+  font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--text-dim); padding: var(--s-5) var(--s-5) var(--s-2);
+  font-weight: 600;
+}
+.t { border-bottom: 1px solid var(--line); padding: var(--s-5); }
+
+/* --- shared: facts list --- */
+.facts { list-style: none; padding: 0; margin: 0; }
+.facts li { color: var(--text); }
+.facts .k { color: var(--text-dim); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; }
+
+/* ---------- F1 — foto fija 160px · datos centrados vertical ---------- */
+.f1 { display: flex; gap: var(--s-5); align-items: center; }
+.f1 img { width: 160px; flex: 0 0 auto; display: block; }
+.f1 .facts li { display: flex; justify-content: space-between; gap: var(--s-4); padding: var(--s-2) 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.f1 .facts li:last-child { border-bottom: 0; }
+
+/* ---------- F2 — foto fija 160px · datos top ---------- */
+.f2 { display: flex; gap: var(--s-5); align-items: flex-start; }
+.f2 img { width: 160px; flex: 0 0 auto; display: block; }
+.f2 .facts li { padding: var(--s-2) 0; }
+.f2 .facts .v { display: block; font-size: 1.05rem; margin-top: 2px; }
+
+/* ---------- F3 — foto grande ~45% · datos row ---------- */
+.f3 { display: flex; gap: var(--s-4); align-items: stretch; }
+.f3 img { width: 45%; flex: 0 0 auto; display: block; object-fit: cover; }
+.f3 .facts { display: flex; flex-direction: column; justify-content: center; }
+.f3 .facts li { display: flex; justify-content: space-between; gap: var(--s-3); padding: var(--s-2) 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+.f3 .facts li:last-child { border-bottom: 0; }
+
+/* ---------- BONUS ---------- */
+.grid { display: grid; gap: var(--s-2); }
+.grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: var(--surface); }
+
+/* B1 — 2 col, la 1ª ocupa 2 filas */
+.b1 { grid-template-columns: 1fr 1fr; }
+.b1 img:nth-child(1) { grid-row: span 2; aspect-ratio: 1/2; }
+
+/* B2 — 2x2 + 1 full-width abajo */
+.b2 { grid-template-columns: 1fr 1fr; }
+.b2 img:nth-child(5) { grid-column: span 2; aspect-ratio: 2/1; }
+
+/* B3 — scroll horizontal */
+.b3 { display: flex; gap: var(--s-2); overflow-x: auto; padding-bottom: var(--s-2); }
+.b3 img { width: 70%; flex: 0 0 auto; aspect-ratio: 1/1; object-fit: cover; display: block; background: var(--surface); }
+</style>
+</head>
+<body>
+
+<p class="label">F1 — foto 160px · datos centrados</p>
+<section class="t f1">
+  <img src="../media/pic-sobre-mi-1.png" alt="">
+  <ul class="facts">
+    <li><span>Altura</span><span>5'9"</span></li>
+    <li><span>Peso</span><span>132 lbs</span></li>
+    <li><span>Género</span><span>Male</span></li>
+    <li><span>Complexión</span><span>Athletic</span></li>
+  </ul>
+</section>
+
+<p class="label">F2 — foto 160px · datos top</p>
+<section class="t f2">
+  <img src="../media/pic-sobre-mi-1.png" alt="">
+  <ul class="facts">
+    <li><span class="k">Altura</span><span class="v">5'9"</span></li>
+    <li><span class="k">Peso</span><span class="v">132 lbs</span></li>
+    <li><span class="k">Género</span><span class="v">Male</span></li>
+    <li><span class="k">Complexió</span><span class="v">Athletic</span></li>
+  </ul>
+</section>
+
+<p class="label">F3 — foto grande 45% · datos row</p>
+<section class="t f3">
+  <img src="../media/pic-sobre-mi-1.png" alt="">
+  <ul class="facts">
+    <li><span>Altura</span><span>5'9"</span></li>
+    <li><span>Peso</span><span>132 lbs</span></li>
+    <li><span>Género</span><span>Male</span></li>
+    <li><span>Complexión</span><span>Athletic</span></li>
+  </ul>
+</section>
+
+<p class="label">B1 — grid 2 col · 1ª foto destacada</p>
+<section class="t">
+  <div class="grid b1">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+  </div>
+</section>
+
+<p class="label">B2 — grid 2x2 + 1 ancha abajo</p>
+<section class="t">
+  <div class="grid b2">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+  </div>
+</section>
+
+<p class="label">B3 — scroll horizontal</p>
+<section class="t">
+  <div class="b3">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+    <img src="../media/icon-pic.jpg" alt="">
+  </div>
+</section>
+
+</body>
+</html>

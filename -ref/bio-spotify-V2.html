@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>_ref — spotify + button variants</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+body { padding-bottom: var(--s-9); }
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: var(--s-5) var(--s-5) var(--s-2);
+  font-weight: 600;
+}
+
+.t { border-bottom: 1px solid var(--line); padding: var(--s-5); }
+
+.spotify {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: var(--s-5);
+}
+
+/* Base del botón */
+.btn {
+  display: inline-block;
+  padding: var(--s-3) var(--s-5);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* V1 — borde gris, texto claro */
+.btn-1 {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.btn-1:hover { border-color: var(--text-dim); }
+
+/* V2 — borde claro, texto claro */
+.btn-2 {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+}
+.btn-2:hover { background: var(--text); color: var(--bg); }
+
+/* V3 — relleno claro, texto oscuro */
+.btn-3 {
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
+}
+.btn-3:hover { background: var(--text-dim); border-color: var(--text-dim); }
+
+/* V4 — borde tenue, texto atenuado */
+.btn-4 {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+}
+.btn-4:hover { color: var(--text); border-color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<p class="label">V1 — Borde gris (#222), texto claro</p>
+<section class="t">
+  <iframe class="spotify"
+    src="https://open.spotify.com/embed/playlist/1b4klnoCg3ygsD7Cp6JGim?utm_source=generator&theme=1"
+    width="100%" height="352" frameBorder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+  <a class="btn btn-1" href="https://open.spotify.com/user/31rqnjjtoyyimj7o7jia5jgcvace" target="_blank" rel="noopener">Add me on Spotify</a>
+</section>
+
+<p class="label">V2 — Borde claro (#EDEDED), texto claro</p>
+<section class="t">
+  <iframe class="spotify"
+    src="https://open.spotify.com/embed/playlist/1b4klnoCg3ygsD7Cp6JGim?utm_source=generator&theme=0"
+    width="100%" height="352" frameBorder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+  <a class="btn btn-2" href="https://open.spotify.com/user/31rqnjjtoyyimj7o7jia5jgcvace" target="_blank" rel="noopener">Add me on Spotify</a>
+</section>
+
+<p class="label">V3 — Relleno claro, texto oscuro</p>
+<section class="t">
+  <iframe class="spotify"
+    src="https://open.spotify.com/embed/playlist/1b4klnoCg3ygsD7Cp6JGim?utm_source=generator&theme=0"
+    width="100%" height="352" frameBorder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+  <a class="btn btn-3" href="https://open.spotify.com/user/31rqnjjtoyyimj7o7jia5jgcvace" target="_blank" rel="noopener">Add me on Spotify</a>
+</section>
+
+<p class="label">V4 — Borde gris, texto atenuado</p>
+<section class="t">
+  <iframe class="spotify"
+    src="https://open.spotify.com/embed/playlist/1b4klnoCg3ygsD7Cp6JGim?utm_source=generator&theme=0"
+    width="100%" height="352" frameBorder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+  <a class="btn btn-4" href="https://open.spotify.com/user/31rqnjjtoyyimj7o7jia5jgcvace" target="_blank" rel="noopener">Add me on Spotify</a>
+</section>
+
+</body>
+</html>

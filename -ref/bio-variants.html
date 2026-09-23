@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>_ref — bio photo variants</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* ---------- test scaffold ---------- */
+body { padding-bottom: var(--s-9); }
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: var(--s-5) var(--s-5) var(--s-2);
+  font-weight: 600;
+}
+
+.t { border-bottom: 1px solid var(--line); }
+
+.pad { padding: var(--s-5) var(--s-5) var(--s-7); }
+
+.photo {
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--surface);
+}
+
+.title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: var(--s-3) 0 var(--s-5);
+}
+
+.body p {
+  margin: 0 0 var(--s-4);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ---------- A — full-bleed ---------- */
+.v-a .photo { width: 100%; }
+
+/* ---------- B — contained ---------- */
+.v-b .photo { width: 100%; }
+
+/* ---------- C — small left + title right ---------- */
+.v-c .head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-4);
+  margin-bottom: var(--s-5);
+}
+.v-c .photo { width: 104px; flex: 0 0 auto; }
+.v-c .title { margin: 0; }
+
+/* ---------- D — small centered ---------- */
+.v-d .pad { text-align: center; }
+.v-d .photo { width: 148px; margin: 0 auto; }
+.v-d .title { margin-top: var(--s-3); }
+.v-d .body { text-align: left; }
+</style>
+</head>
+<body>
+
+<p class="label">A — Foto full-bleed arriba</p>
+<section class="t v-a">
+  <img class="photo" src="../media/icon-pic.jpg" alt="Nelson De Sousa">
+  <div class="pad">
+    <p class="eyebrow">About</p>
+    <h1 class="title">Nelson Miguel De Sousa</h1>
+    <div class="body">
+      <p>Hola, esta es mi web y esta es mi biografía. Un poco sobre mí, sobre lo que puedo compartirles en este momento, por cómo me siento y cómo me quiero expresar.</p>
+      <p>Nací en El Llano el 9 de abril de 2009. Viví en el pueblo por unos años, años en los que no aprendí muchas cosas sobre el mundo exterior ni me relacioné con las personas de la manera en que, hoy en día, yo le expondría algo a un hijo o a un hermano menor. Muy diferente era todo en ese tiempo; lo recuerdo con una sensación «rara», a decir verdad.</p>
+    </div>
+  </div>
+</section>
+
+<p class="label">B — Foto contenida en el padding</p>
+<section class="t v-b">
+  <div class="pad">
+    <img class="photo" src="../media/icon-pic.jpg" alt="Nelson De Sousa">
+    <p class="eyebrow">About</p>
+    <h1 class="title">Nelson Miguel De Sousa</h1>
+    <div class="body">
+      <p>Hola, esta es mi web y esta es mi biografía. Un poco sobre mí, sobre lo que puedo compartirles en este momento, por cómo me siento y cómo me quiero expresar.</p>
+      <p>Nací en El Llano el 9 de abril de 2009. Viví en el pueblo por unos años, años en los que no aprendí muchas cosas sobre el mundo exterior ni me relacioné con las personas de la manera en que, hoy en día, yo le expondría algo a un hijo o a un hermano menor. Muy diferente era todo en ese tiempo; lo recuerdo con una sensación «rara», a decir verdad.</p>
+    </div>
+  </div>
+</section>
+
+<p class="label">C — Foto pequeña + título a la derecha</p>
+<section class="t v-c">
+  <div class="pad">
+    <div class="head">
+      <img class="photo" src="../media/icon-pic.jpg" alt="Nelson De Sousa">
+      <div>
+        <p class="eyebrow">About</p>
+        <h1 class="title">Nelson Miguel De Sousa</h1>
+      </div>
+    </div>
+    <div class="body">
+      <p>Hola, esta es mi web y esta es mi biografía. Un poco sobre mí, sobre lo que puedo compartirles en este momento, por cómo me siento y cómo me quiero expresar.</p>
+      <p>Nací en El Llano el 9 de abril de 2009. Viví en el pueblo por unos años, años en los que no aprendí muchas cosas sobre el mundo exterior ni me relacioné con las personas de la manera en que, hoy en día, yo le expondría algo a un hijo o a un hermano menor. Muy diferente era todo en ese tiempo; lo recuerdo con una sensación «rara», a decir verdad.</p>
+    </div>
+  </div>
+</section>
+
+<p class="label">D — Foto pequeña centrada</p>
+<section class="t v-d">
+  <div class="pad">
+    <img class="photo" src="../media/icon-pic.jpg" alt="Nelson De Sousa">
+    <p class="eyebrow">About</p>
+    <h1 class="title">Nelson Miguel De Sousa</h1>
+    <div class="body">
+      <p>Hola, esta es mi web y esta es mi biografía. Un poco sobre mí, sobre lo que puedo compartirles en este momento, por cómo me siento y cómo me quiero expresar.</p>
+      <p>Nací en El Llano el 9 de abril de 2009. Viví en el pueblo por unos años, años en los que no aprendí muchas cosas sobre el mundo exterior ni me relacioné con las personas de la manera en que, hoy en día, yo le expondría algo a un hijo o a un hermano menor. Muy diferente era todo en ese tiempo; lo recuerdo con una sensación «rara», a decir verdad.</p>
+    </div>
+  </div>
+</section>
+<nav class="bottom-nav">
+    <a class="nav-item active" href="index.html">Home</a>
+    <a class="nav-item" href="sobre-mi.html">About</a>
+    <a class="nav-item" href="deporte.html">Sport</a>
+    <a class="nav-item" href="contacto.html">Contact</a>
+  </nav>
+</body>
+</html>

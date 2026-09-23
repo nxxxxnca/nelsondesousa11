@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REF · Hero V1 Monumental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #111;
+    --bg-elev:   #1a1a1a;
+    --line:      #222;
+    --accent:    #f7c600;
+    --text:      #EDEDED;
+    --text-dim:  #A0A0A0;
+
+    --font-title: 'Archivo Black', system-ui, sans-serif;
+    --font-body:  'Inter', system-ui, sans-serif;
+
+    --fs-eyebrow: 0.7rem;
+    --fs-meta:    0.75rem;
+
+    --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+    --s-5: 24px; --s-9: 96px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .hero {
+    min-height: 100svh;
+    min-height: 100vh;
+    padding: var(--s-9) var(--s-5) 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .eyebrow {
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  .display {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 15vw, 9.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-4);
+    border-top: 1px solid var(--line);
+    padding-top: var(--s-4);
+    font-size: var(--fs-meta);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .dot {
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin: 0 6px;
+    vertical-align: middle;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background: var(--bg-elev);
+    border-top: 1px solid var(--line);
+    padding: var(--s-3) var(--s-4);
+  }
+  .nav-item {
+    position: relative;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: var(--s-2);
+  }
+  .nav-item.active { color: var(--text); }
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    bottom: -2px;
+    width: 18px; height: 2px;
+    background: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow">@nelsondesousa11</div>
+
+  <h1 class="display">Nelson<br>De Sousa</h1>
+
+  <div class="meta">
+    <span>Athlete<span class="dot"></span>Builder<span class="dot"></span>Learner</span>
+    <span>VE</span>
+  </div>
+</section>
+
+<nav class="bottom-nav">
+  <a class="nav-item active" href="index.html">Home</a>
+  <a class="nav-item" href="sobre-mi.html">About</a>
+  <a class="nav-item" href="deporte.html">Sport</a>
+  <a class="nav-item" href="contacto.html">Contact</a>
+</nav>
+
+</body>
+</html>

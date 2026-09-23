@@ -1,12 +1,271 @@
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+/* ==========================================================================
+   TOKENS
+   ========================================================================== */
+:root {
+  /* Color */
+  --bg:        #111;
+  --surface:   #1a1a1a;
+  --line:      #222;
+  --accent:    #f7c600;
+  --text:      #EDEDED;
+  --text-dim:  #A0A0A0;
+
+  /* Tipografía */
+  --font-title: 'Archivo Black', system-ui, sans-serif;
+  --font-body:  'Inter', system-ui, sans-serif;
+
+  /* Escala tipográfica */
+  --fs-eyebrow: 0.7rem;
+  --fs-meta:    0.75rem;
+  --fs-nav:     0.7rem;
+
+  /* Espaciado */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
 }
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;    /* recorta para llenar sin deformar */
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
   display: block;
 }
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+.hero {
+  min-height: 100svh;
+  min-height: 100vh;
+  padding: var(--s-9) var(--s-5) 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   COMPONENTES
+   ========================================================================== */
+
+/* --- Eyebrow --- */
+.eyebrow {
+  margin: 0;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* --- Display --- */
+.display {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 15vw, 9.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* --- Meta --- */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-4);
+  border-top: 1px solid var(--line);
+  padding-top: var(--s-4);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+/* --- Bottom nav --- */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  padding: var(--s-3) var(--s-4);
+}
+
+.nav-item {
+  position: relative;
+  font-size: var(--fs-nav);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: var(--s-2);
+}
+
+.nav-item.active {
+  color: var(--text);
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  width: 18px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* ==========================================================================
+   PÁGINA — SOBRE-MI
+   ========================================================================== */
+.bio-page {
+  padding: var(--s-7) var(--s-5) 120px;
+}
+
+.bio-head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-4);
+  margin-bottom: var(--s-6);
+}
+
+.bio-photo {
+  width: 104px;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+}
+
+.bio-title,
+.section-title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.section-title {
+  margin: 0 0 var(--s-5);
+}
+
+.section-title .accent {
+  color: var(--accent);
+}
+
+.bio-body p {
+  margin: 0 0 var(--s-4);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.bio-body p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-end {
+  display: flex;
+  justify-content: center;
+  padding: var(--s-7) 0 var(--s-8);
+}
+
+.bio-break {
+  margin: 0 0 var(--s-8);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(2rem, 9vw, 3.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-align: center;
+}
+
+.bio-bonus {
+  margin-bottom: var(--s-8);
+}
+
+.bio-music {
+  margin-top: var(--s-8);
+}
+
+/* ==========================================================================
+   COMPONENTES — Botón
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: var(--s-3) var(--s-5);
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.btn:hover {
+  border-color: var(--text-dim);
+}
+
+/* ==========================================================================
+   COMPONENTES — Embed Spotify
+   ========================================================================== */
+.spotify {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: var(--s-5);
+}
+
