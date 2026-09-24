@@ -130,6 +130,7 @@ img {
   background: var(--surface);
   border-top: 1px solid var(--line);
   padding: var(--s-3) var(--s-4);
+  z-index: 10;
 }
 
 .nav-item {
@@ -189,6 +190,7 @@ img {
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--text);
+
 }
 
 .section-title {
@@ -267,5 +269,107 @@ img {
   border-radius: 12px;
   display: block;
   margin-bottom: var(--s-5);
+}
+
+
+
+/* =========================================================
+   PÁGINA · Deporte
+   ========================================================= */
+
+.sport-page {
+  padding: var(--s-6) var(--s-4) 120px;
+}
+
+.year-block {
+  margin-bottom: var(--s-9);
+}
+
+.year-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Etiqueta de año: "2023" con barra amarilla a la izquierda */
+.year-tag {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text);
+  border-left: 3px solid var(--accent);
+  padding-left: var(--s-2);
+  margin-bottom: var(--s-5);
+}
+
+/* =========================================================
+   Collage (C3b · cascada diagonal superpuesta)
+   ========================================================= */
+
+.collage {
+  position: relative;
+  max-width: 520px;
+}
+
+.collage-photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+.collage-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Formatos: el ancho se ajusta al tipo para que la diagonal no se rompa */
+.collage-photo.portrait  { aspect-ratio: 3 / 4; width: 60%; }
+.collage-photo.square    { aspect-ratio: 1 / 1; width: 70%; }
+.collage-photo.landscape { aspect-ratio: 4 / 3; width: 80%; }
+
+/* Cascada: la 2ª se corre a la derecha y sube; la 3ª igual pero más */
+.collage-photo:nth-child(1) {
+  margin-left: 0;
+}
+
+.collage-photo:nth-child(2) {
+  margin-left: 25%;
+  margin-top: calc(-1 * var(--s-7));
+  z-index: 2;
+}
+
+.collage-photo:nth-child(3) {
+  margin-left: 20%;
+  margin-top: calc(-1 * var(--s-7));
+  z-index: 3;
+}
+
+/* =========================================================
+   PÁGINA · Deporte — cabecera
+   ========================================================= */
+
+.sport-head {
+  margin-bottom: var(--s-8);
+}
+
+.sport-title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: clamp(40px, 12vw, 64px);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0;
+}
+
+.sport-title .accent {
+  color: var(--accent);
 }
 
