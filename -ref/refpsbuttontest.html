@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Split button lab — 30 variations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111;
+    --surface: #1a1a1a;
+    --line: #222;
+    --accent: #f7c600;
+    --text: #EDEDED;
+    --text-dim: #A0A0A0;
+    --font-body: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    padding: 40px 24px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .label {
+    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 14px; text-align: center;
+  }
+  .cell {
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%; max-width: 360px;
+  }
+
+  /* ===== Base ===== */
+  .b {
+    display: inline-flex;
+    align-items: stretch;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text);
+    background: transparent;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .b .txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+  }
+  .b .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #111;
+    font-weight: 700;
+    padding: 16px 20px;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+  }
+  .b:hover { border-color: var(--accent); }
+
+  /* ===== TAMAÑOS ===== */
+
+  /* 01 — XS */
+  .b01 { font-size: 11px; }
+  .b01 .txt { padding: 8px 16px; }
+  .b01 .box { padding: 8px 12px; font-size: 12px; }
+
+  /* 02 — SM */
+  .b02 { font-size: 12px; }
+  .b02 .txt { padding: 12px 22px; }
+  .b02 .box { padding: 12px 16px; font-size: 13px; }
+
+  /* 03 — MD (base original #10) */
+  .b03 .txt { padding: 16px 28px; }
+  .b03 .box { padding: 16px 20px; }
+
+  /* 04 — MD alto */
+  .b04 .txt { padding: 22px 28px; }
+  .b04 .box { padding: 22px 20px; }
+
+  /* 05 — LG */
+  .b05 { font-size: 15px; }
+  .b05 .txt { padding: 20px 36px; }
+  .b05 .box { padding: 20px 26px; font-size: 16px; }
+
+  /* 06 — XL */
+  .b06 { font-size: 16px; }
+  .b06 .txt { padding: 26px 44px; }
+  .b06 .box { padding: 26px 32px; font-size: 18px; }
+
+  /* 07 — Full width */
+  .b07 { width: 100%; }
+  .b07 .txt { flex: 1; justify-content: flex-start; padding: 18px 28px; }
+  .b07 .box { padding: 18px 26px; }
+
+  /* 08 — Compacto */
+  .b08 { font-size: 12px; letter-spacing: 0.14em; }
+  .b08 .txt { padding: 14px 18px; }
+  .b08 .box { padding: 14px 14px; font-size: 13px; }
+
+  /* 09 — Box estrecho */
+  .b09 .txt { padding: 16px 28px; }
+  .b09 .box { padding: 16px 12px; }
+
+  /* 10 — Box ancho */
+  .b10 .txt { padding: 16px 28px; }
+  .b10 .box { padding: 16px 40px; }
+
+  /* ===== RADIO / FORMA ===== */
+
+  /* 11 — Radius 0 */
+  .b11 { border-radius: 0; }
+
+  /* 12 — Radius 4 */
+  .b12 { border-radius: 4px; }
+
+  /* 13 — Radius 12 */
+  .b13 { border-radius: 12px; }
+
+  /* 14 — Pill */
+  .b14 { border-radius: 999px; }
+
+  /* 15 — Asimétrico (izquierda recta) */
+  .b15 { border-radius: 0 999px 999px 0; }
+
+  /* 16 — Box cuadrado */
+  .b16 .box { width: 52px; padding: 16px 0; }
+
+  /* 17 — Inset pill (padding alrededor) */
+  .b17 { border-radius: 999px; padding: 4px; }
+  .b17 .txt { padding: 12px 24px; }
+  .b17 .box { border-radius: 999px; padding: 12px 20px; }
+
+  /* ===== ESTILO DEL BOX ===== */
+
+  /* 18 — Box outline */
+  .b18 .box {
+    background: transparent;
+    color: var(--accent);
+    border-left: 1px solid var(--line);
+  }
+  .b18:hover .box { border-color: var(--accent); }
+
+  /* 19 — Box con ▶ */
+  .b19 .box { font-size: 13px; }
+
+  /* 20 — Box con + */
+  .b20 .box { font-size: 18px; font-weight: 400; }
+
+  /* 21 — Box con » */
+  .b21 .box { font-size: 18px; }
+
+  /* 22 — Box con ↗ */
+  .b22 .box { font-size: 16px; }
+
+  /* 23 — Box con ● */
+  .b23 .box { font-size: 12px; }
+
+  /* 24 — Box sin icono (barra estrecha) */
+  .b24 .box { width: 14px; padding: 16px 0; font-size: 0; }
+
+  /* ===== BORDE ===== */
+
+  /* 25 — Sin borde */
+  .b25 { border: none; }
+
+  /* 26 — Borde 2px */
+  .b26 { border-width: 2px; }
+
+  /* 27 — Borde accent */
+  .b27 { border-color: var(--accent); }
+
+  /* 28 — Borde dashed */
+  .b28 { border-style: dashed; }
+
+  /* ===== ORDEN / COMPOSICIÓN ===== */
+
+  /* 29 — Box a la izquierda */
+  .b29 { flex-direction: row-reverse; }
+
+  /* 30 — Dos líneas de texto */
+  .b30 .txt {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 14px 24px;
+  }
+  .b30 .txt .top {
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--text-dim); font-weight: 500;
+    text-transform: uppercase;
+  }
+  .b30 .txt .main {
+    font-size: 14px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== TAMAÑOS ===== -->
+
+  <div class="cell"><div class="label">01 — XS</div>
+    <a href="#" class="b b01"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">02 — SM</div>
+    <a href="#" class="b b02"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">03 — MD (base original #10)</div>
+    <a href="#" class="b b03"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">04 — MD alto</div>
+    <a href="#" class="b b04"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">05 — LG</div>
+    <a href="#" class="b b05"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">06 — XL</div>
+    <a href="#" class="b b06"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">07 — Full width</div>
+    <a href="#" class="b b07"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">08 — Compacto</div>
+    <a href="#" class="b b08"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">09 — Box estrecho</div>
+    <a href="#" class="b b09"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">10 — Box ancho</div>
+    <a href="#" class="b b10"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <!-- ===== RADIO / FORMA ===== -->
+
+  <div class="cell"><div class="label">11 — Radius 0</div>
+    <a href="#" class="b b11"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">12 — Radius 4</div>
+    <a href="#" class="b b12"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">13 — Radius 12</div>
+    <a href="#" class="b b13"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">14 — Pill</div>
+    <a href="#" class="b b14"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">15 — Asimétrico</div>
+    <a href="#" class="b b15"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">16 — Box cuadrado</div>
+    <a href="#" class="b b16"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">17 — Inset pill</div>
+    <a href="#" class="b b17"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <!-- ===== ESTILO DEL BOX ===== -->
+
+  <div class="cell"><div class="label">18 — Box outline</div>
+    <a href="#" class="b b18"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">19 — Box con ▶</div>
+    <a href="#" class="b b19"><span class="txt">Direct contact</span><span class="box">▶</span></a></div>
+
+  <div class="cell"><div class="label">20 — Box con +</div>
+    <a href="#" class="b b20"><span class="txt">Direct contact</span><span class="box">+</span></a></div>
+
+  <div class="cell"><div class="label">21 — Box con »</div>
+    <a href="#" class="b b21"><span class="txt">Direct contact</span><span class="box">»</span></a></div>
+
+  <div class="cell"><div class="label">22 — Box con ↗</div>
+    <a href="#" class="b b22"><span class="txt">Direct contact</span><span class="box">↗</span></a></div>
+
+  <div class="cell"><div class="label">23 — Box con ●</div>
+    <a href="#" class="b b23"><span class="txt">Direct contact</span><span class="box">●</span></a></div>
+
+  <div class="cell"><div class="label">24 — Box sin icono</div>
+    <a href="#" class="b b24"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <!-- ===== BORDE ===== -->
+
+  <div class="cell"><div class="label">25 — Sin borde</div>
+    <a href="#" class="b b25"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">26 — Borde 2px</div>
+    <a href="#" class="b b26"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">27 — Borde accent</div>
+    <a href="#" class="b b27"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">28 — Borde dashed</div>
+    <a href="#" class="b b28"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <!-- ===== ORDEN / COMPOSICIÓN ===== -->
+
+  <div class="cell"><div class="label">29 — Box a la izquierda</div>
+    <a href="#" class="b b29"><span class="txt">Direct contact</span><span class="box">→</span></a></div>
+
+  <div class="cell"><div class="label">30 — Dos líneas de texto</div>
+    <a href="#" class="b b30">
+      <span class="txt">
+        <span class="top">Available on</span>
+        <span class="main">Direct contact</span>
+      </span>
+      <span class="box">→</span>
+    </a></div>
+
+</body>
+</html>
